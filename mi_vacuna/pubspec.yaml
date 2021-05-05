@@ -40,6 +40,8 @@ dependencies:
   stacked: ^1.9.7
   stacked_services:
 
+  random_date: ^0.0.5
+
 
   #firebase_core: ^0.5.3
   #cloud_firestore: ^0.14.4

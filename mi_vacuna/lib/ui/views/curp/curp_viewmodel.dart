@@ -14,7 +14,7 @@ class CurpViewModel extends BaseViewModel {
 
   showResult() {
     final curp =
-        '${user['last_name'].toString().substring(0, 1).toUpperCase()}${user['surname'].toString()[0].toUpperCase()}${user['first_name'].toString()[0]}${DateFormat('yyMMdd').format(user['birth_date'])}XAXAXA00';
+        '${user['last_name'].toString().substring(0, 2).toUpperCase()}${user['surname'].toString()[0].toUpperCase()}${user['first_name'].toString()[0]}${DateFormat('yyMMdd').format(user['birth_date'])}XAXAXA00';
 
     _dialogService
         .showDialog(

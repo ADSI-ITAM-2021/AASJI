@@ -26,71 +26,84 @@ class MainView extends StatelessWidget {
           child: Container(
             width: 480,
             child: ViewModelBuilder<MainViewModel>.reactive(
-              builder: (context, model, child) => Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(15),
-                      topLeft: Radius.circular(15),
+              builder: (context, model, child) => Form(
+                key: model.formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(15),
+                        topLeft: Radius.circular(15),
+                      ),
+                      child: Container(
+                        height: 64,
+                        width: double.infinity,
+                        color: Theme.of(context).primaryColor,
+                        child: Center(
+                            child: Text(
+                                'Tengo 60 años cumplidos y me quiero vacunar')),
+                      ),
                     ),
-                    child: Container(
-                      height: 64,
-                      width: double.infinity,
-                      color: Theme.of(context).primaryColor,
-                      child: Center(
-                          child: Text(
-                              'Tengo 60 años cumplidos y me quiero vacunar')),
-                    ),
-                  ),
-                  SizedBox(height: 48),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: TextField(
-                      controller: TextEditingController()..text = model.curp,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(),
-                        hintText: 'Introduce tu CURP',
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFF9D0A0A),
+                    SizedBox(height: 48),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      child: TextFormField(
+                        controller: TextEditingController(text: model.curp),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(),
+                          hintText: 'Introduce tu CURP',
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFF9D0A0A),
+                            ),
                           ),
                         ),
-                      ),
-                      textAlign: TextAlign.center,
-                      textCapitalization: TextCapitalization.characters,
-                    ),
-                  ),
-                  SizedBox(height: 48),
-                  ElevatedButton(
-                    onPressed: () => model.goToForm(),
-                    child: Text(
-                      'Confirmar CURP',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFF9D0A0A),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 32,
-                        vertical: 24,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        onSaved: (value) {
+                          model.curp = value ?? '';
+                        },
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.length < 18) {
+                            return 'Debes introducir un curp válido';
+                          }
+                        },
+                        textAlign: TextAlign.center,
+                        textCapitalization: TextCapitalization.characters,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 24),
-                  TextButton(
-                    onPressed: () => model.goToCurp(),
-                    child: Text('Si no conoces tu CURP consultalo aquí.'),
-                  ),
-                  SizedBox(height: 24),
-                ],
+                    SizedBox(height: 48),
+                    ElevatedButton(
+                      onPressed: model.validateCurp,
+                      child: Text(
+                        'Confirmar CURP',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFF9D0A0A),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 24,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 24),
+                    TextButton(
+                      onPressed: () => model.goToCurp(),
+                      child: Text('Si no conoces tu CURP consultalo aquí.'),
+                    ),
+                    SizedBox(height: 24),
+                  ],
+                ),
               ),
               viewModelBuilder: () => MainViewModel(),
             ),

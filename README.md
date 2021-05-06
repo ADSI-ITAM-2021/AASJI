@@ -7,6 +7,6 @@ Bienvenidxs al repositorio del grupo AASJI para su proyecto de mivacuna. El equi
 ## Diseño de la página
 
 El diseño de la página se realizo en figma, utilizando los conceptos aprendidos en clase para el desarrollo de un diseño apto para salir al público. 
-El diseño se puede encontrar en este link: [Link](https://www.figma.com/file/YkO9yHXJ4hG01OQQxpYm1F/mivacuna?node-id=19%3A2).
+El diseño se puede encontrar en este link: [Diseño](https://www.figma.com/file/YkO9yHXJ4hG01OQQxpYm1F/mivacuna?node-id=19%3A2).
 
 

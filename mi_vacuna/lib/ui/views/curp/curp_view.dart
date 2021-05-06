@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:mi_vacuna/ui/views/curp/curp_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
+//Vista del curp
 class CurpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

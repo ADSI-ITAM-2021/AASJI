@@ -7,6 +7,7 @@ import 'app/app.locator.dart';
 import 'app/app.router.dart';
 
 void main() {
+  //Aquí se corre el programa
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
   //setupDialogUi();

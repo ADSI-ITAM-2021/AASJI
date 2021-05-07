@@ -16,7 +16,9 @@ Al dar clic, el usuario observará la página 2, ahí deberá colocar el estado 
 
 Si el usuario no conoce su CURP, tendrá que dar clic en "Si no conoces tu curp encuéntralo aquí" y lo direccionará a otra pantalla en la que deberá escribir los datos personales que se solicitan (Nombres, Apellidos, Fecha de Nacimiento, Sexo, Estado) y dar clic en el botón "Continuar". Finalmente, la pantalla le mostrará el curp correspondiente al usuario.
 
+## Restricciones
 
+Actualmente, este programa no tiene disponible la opción de revisar información relevante sobre la vacunación (estatus, fecha de primera dosis, de segunda dosis, etc.) a través del folio, posteriormente se implementará. Por esto, si el usuario coloca su folio en el campo "Ingresa tu folio", el sistema no realizará acción alguna.
 
 
 
